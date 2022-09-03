@@ -4,7 +4,6 @@ API Rest para obtener un listado de cervezas que combinen con una comida pasada 
 Proyecto creado en symfony 5.4 usando DDD, arquitectura hexagonal y gestión de ramas con git flow.
 
 ### Tareas por hacer
-- [ ] Test de integración para el servicio de búsqueda.
 - [ ] Crear controlador para el servicio de búsqueda, gestionar validaciones y transformar objeto de respuesta.
 - [ ] Añadir función al repositorio existente y crear servicio de aplicación y test unitario para mostrar los datos de una cerveza especifica según el ID proporcionado.
 - [ ] Añadir funcionalidad al repositorio de PunkApi y test de integración para el servicio de detalle de una cerveza.
@@ -23,3 +22,4 @@ Proyecto creado en symfony 5.4 usando DDD, arquitectura hexagonal y gestión de 
 - [x] Añadir servicio de aplicación y test unitario para buscar una cerveza mediante una cadena de caracteres. (El campo a filtrar será "food").
 - [x] Añadir al dominio el modelo y los value objects necesarios.
 - [x] Crear repositorio de PunkApi en la capa de infraestructura.
+- [x] Test de integración para el servicio de búsqueda.
