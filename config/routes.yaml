@@ -1,3 +1,4 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+beer_search_v1:
+  path: /api/v1/beers
+  controller: \App\Controller\Beers\BeerSearcherController
+  methods: GET
