@@ -4,7 +4,6 @@ API Rest para obtener un listado de cervezas que combinen con una comida pasada 
 Proyecto creado en symfony 5.4 usando DDD, arquitectura hexagonal y gestión de ramas con git flow.
 
 ### Tareas por hacer
-- [ ] Crear normalizador de respuestas, errores y excepciones de API.
 - [ ] Añadir interfaz de repositorio de cervezas.
 - [ ] Añadir servicio de aplicación y test unitario para buscar una cerveza mediante una cadena de caracteres. (El campo a filtrar será "food").
 - [ ] Añadir al dominio el modelo y los value objects necesarios.
@@ -23,4 +22,5 @@ Proyecto creado en symfony 5.4 usando DDD, arquitectura hexagonal y gestión de 
 - [x] Inicialización del proyecto con Symfony 5.4.
 - [x] Mover código de src a app para desacoplar el framework de la arquitectura y asociar src con vendor del proyecto.
 - [x] Añadir dependencias de Symfony, php-cs-fixer, PHPUnit y Guzzle.
+- [x] Crear normalizador de respuestas, errores y excepciones de API.
 
