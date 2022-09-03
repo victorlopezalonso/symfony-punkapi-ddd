@@ -20,5 +20,8 @@ services:
             - '../app/Entity/'
             - '../app/Kernel.php'
 
+    Vlopez\:
+        resource: '../src/'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
