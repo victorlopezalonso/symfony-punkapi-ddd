@@ -2,9 +2,12 @@
 
 namespace Vlopez\Brewers\Beers\Infrastructure\PunkApi;
 
+use Exception;
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
+use Vlopez\Brewers\Beers\Domain\Exceptions\HttpConnectionErrorException;
 
 class PunkApi
 {
@@ -41,6 +44,21 @@ class PunkApi
         $uri = static::API_URL . '?' . $this->transformQueryParams($page, $perPage, $food);
 
         $response = $this->client->request('GET', $uri);
+
+        return $this->toJsonResponse($response);
+    }
+
+    public function findBeerById($beerId)
+    {
+        $uri = static::API_URL . '/' . $beerId;
+
+        try {
+            $response = $this->client->request('GET', $uri);
+        } catch (ConnectException $e) {
+            throw new HttpConnectionErrorException();
+        } catch (Exception $e) {
+            return null;
+        }
 
         return $this->toJsonResponse($response);
     }

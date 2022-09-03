@@ -3,9 +3,11 @@
 namespace Vlopez\Brewers\Beers\Infrastructure;
 
 use Exception;
+use Vlopez\Brewers\Beers\Domain\Beer;
 use Vlopez\Brewers\Beers\Domain\BeerRepository;
 use Vlopez\Brewers\Beers\Domain\Exceptions\HttpConnectionErrorException;
 use Vlopez\Brewers\Beers\Domain\ValueObject\BeerFood;
+use Vlopez\Brewers\Beers\Domain\ValueObject\BeerId;
 use Vlopez\Brewers\Beers\Domain\ValueObject\BeerPage;
 use Vlopez\Brewers\Beers\Domain\ValueObject\BeerPerPage;
 use Vlopez\Brewers\Beers\Infrastructure\PunkApi\PunkApi;
@@ -31,5 +33,16 @@ class PunkApiBeerRepository implements BeerRepository
         }
 
         return $this->transformToArrayOfBeers($response);
+    }
+
+    public function findById(BeerId $beerId): ?Beer
+    {
+        $beers = $this->api->findBeerById($beerId->value());
+
+        if (!$beers) {
+            return null;
+        }
+
+        return $this->transformToBeer($beers[0]);
     }
 }
