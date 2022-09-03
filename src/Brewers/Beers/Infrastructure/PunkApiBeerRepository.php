@@ -37,6 +37,12 @@ class PunkApiBeerRepository implements BeerRepository
 
     public function findById(BeerId $beerId): ?Beer
     {
-        // TODO: Implement findById() method.
+        $beers = $this->api->findBeerById($beerId->value());
+
+        if (!$beers) {
+            return null;
+        }
+
+        return $this->transformToBeer($beers[0]);
     }
 }

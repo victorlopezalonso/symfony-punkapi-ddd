@@ -7,6 +7,7 @@ use Tests\src\Brewers\Beers\Infrastructure\PunkApiMocks\PunkApiBeerNoConnectionM
 use Vlopez\Brewers\Beers\Domain\Beer;
 use Vlopez\Brewers\Beers\Domain\Exceptions\HttpConnectionErrorException;
 use Vlopez\Brewers\Beers\Domain\ValueObject\BeerFood;
+use Vlopez\Brewers\Beers\Domain\ValueObject\BeerId;
 use Vlopez\Brewers\Beers\Domain\ValueObject\BeerPage;
 use Vlopez\Brewers\Beers\Domain\ValueObject\BeerPerPage;
 use Vlopez\Brewers\Beers\Infrastructure\PunkApiBeerRepository;
@@ -73,5 +74,29 @@ class PunkApiBeerRepositoryTest extends TestCase
             new BeerPerPage(1),
             new BeerFood('invented-test-food')
         );
+    }
+
+    /** @test */
+    public function it_should_return_a_beer_by_id()
+    {
+        $beer = $this->repository->findById(new BeerId(1));
+
+        $this->assertInstanceOf(Beer::class, $beer);
+    }
+
+    /** @test */
+    public function it_should_return_a_null_value_for_non_existing_id()
+    {
+        $beer = $this->repository->findById(new BeerId(0));
+
+        $this->assertNull($beer);
+    }
+
+    /** @test */
+    public function it_should_throw_an_error_for_http_connection_error_when_finding_by_id()
+    {
+        $this->expectException(HttpConnectionErrorException::class);
+
+        $this->noConnectionMockRepository->findById(new BeerId(1));
     }
 }
