@@ -6,16 +6,14 @@ use JsonSerializable;
 
 class Response implements JsonSerializable
 {
-    protected $response;
-
     public function __construct($item)
     {
-        $this->response = static::transform($item);
+        static::transform($item);
     }
 
-    public function transform($item) :array
+    public function transform($item)
     {
-        return [];
+        //
     }
 
     public static function collection($array): array
@@ -25,8 +23,8 @@ class Response implements JsonSerializable
         }, $array);
     }
 
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
-        return $this->response;
+        return (array) $this;
     }
 }
