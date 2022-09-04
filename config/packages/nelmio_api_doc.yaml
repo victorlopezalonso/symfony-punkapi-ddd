@@ -1,0 +1,15 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Brewers API
+            description: Find me a beer!
+            version: 1.1.0
+    areas:
+        path_patterns:
+            - ^/api(?!/doc$)(?!/doc.json) # Accepts routes under /api except /api/doc and /api/doc.json
+
+    models:
+        names: [
+            { alias: Beer, type: Vlopez\Brewers\Beers\Application\Response\BeerResponse },
+            { alias: BeerDetail, type: Vlopez\Brewers\Beers\Application\Response\BeerDetailResponse }
+        ]
