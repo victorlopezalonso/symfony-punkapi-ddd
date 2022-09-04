@@ -11,6 +11,12 @@ Feature:
     Given a user sends a GET request to "/api/v1/beers?page=1"
     Then the response status code should be 200
     And the response data should contain 15 items
+    And user can see id field in array
+    And user can see name field in array
+    And user can see description field in array
+    And user cannot see image field in array
+    And user cannot see slogan field in array
+    And user cannot see date field in array
 
   Scenario: A list of N beers should be provided when the "perPage" query param is present
     Given a user sends a GET request to "/api/v1/beers?page=1&perPage=1"
