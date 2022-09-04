@@ -19,7 +19,7 @@ class Response implements JsonSerializable
     public static function collection($array): array
     {
         return array_map(function ($item) {
-            return new static($item);
+            return (new static($item))->jsonSerialize();
         }, $array);
     }
 

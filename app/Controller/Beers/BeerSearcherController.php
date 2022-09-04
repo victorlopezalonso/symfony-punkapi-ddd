@@ -18,7 +18,7 @@ class BeerSearcherController extends ApiController
      *
      * @OA\Tag(name="Beers")
      * @OA\Parameter(required=true, name="page", in="query", description="page number", @OA\Schema(type="integer"))
-     * @OA\Parameter(required=true, name="perPage", in="query", description="number of elements for each page", @OA\Schema(type="integer"))
+     * @OA\Parameter(name="perPage", in="query", description="number of elements for each page", @OA\Schema(type="integer"))
      * @OA\Parameter(name="food", in="query", description="food filter (3 characters min)", @OA\Schema(type="string"))
      * @OA\Response(
      *     response=200,
