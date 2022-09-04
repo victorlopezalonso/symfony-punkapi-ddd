@@ -39,6 +39,6 @@ class BeerFindByIdController extends ApiController
             return $this->withMessage('Beer Not found')->response(Response::HTTP_NOT_FOUND);
         }
 
-        return $this->json(new BeerDetailResponse($beer));
+        return $this->withData(new BeerDetailResponse($beer))->response();
     }
 }
