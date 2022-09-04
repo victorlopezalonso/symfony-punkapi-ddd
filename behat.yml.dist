@@ -3,8 +3,14 @@ default:
         default:
             contexts:
                 - Tests\src\Shared\Infrastructure\Behat\DemoContext
+                - Tests\src\Shared\Infrastructure\Behat\ApiContext
             paths:
                 features: tests/app/features
     extensions:
         FriendsOfBehat\SymfonyExtension:
                 bootstrap: tests/bootstrap.php
+        Behat\MinkExtension:
+              sessions:
+                symfony:
+                  symfony: ~
+              base_url: ''
