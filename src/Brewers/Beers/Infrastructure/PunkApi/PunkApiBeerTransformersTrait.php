@@ -10,8 +10,6 @@ use Vlopez\Brewers\Beers\Domain\ValueObject\BeerImage;
 use Vlopez\Brewers\Beers\Domain\ValueObject\BeerName;
 use Vlopez\Brewers\Beers\Domain\ValueObject\BeerSlogan;
 
-const PER_PAGE_LIMIT = 80;
-
 trait PunkApiBeerTransformersTrait
 {
     public function transformToBeer($beer) :Beer

@@ -13,7 +13,9 @@ class PunkApi
 {
     protected $client;
 
-    public const API_URL = 'https://api.punkapi.com/v2/beers';
+    protected const PER_PAGE_LIMIT = 80;
+
+    protected const API_URL = 'https://api.punkapi.com/v2/beers';
 
     public function __construct()
     {
@@ -25,7 +27,7 @@ class PunkApi
         $params = [];
 
         $params['page'] = $page;
-        $params['per_page'] = min($perPage, PER_PAGE_LIMIT);
+        $params['per_page'] = min($perPage, self::PER_PAGE_LIMIT);
         $food && $params['food'] = str_replace(' ', '_', $food);
 
         return http_build_query($params);
