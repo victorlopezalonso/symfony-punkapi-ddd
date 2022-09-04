@@ -5,7 +5,6 @@ Proyecto creado en symfony 5.4 usando DDD, arquitectura hexagonal y gestión de 
 
 ### Tareas por hacer
 - [ ] Cachear las peticiones a PunkApi temporalmente mediante FileSystem o Redis.
-- [ ] Crear test funcionales mediante Behat.
 
 ### Tareas completadas ✓
 - [x] Análisis de proyecto e investigación del API que provee [PunkApi](https://punkapi.com/documentation/v2).
@@ -23,3 +22,4 @@ Proyecto creado en symfony 5.4 usando DDD, arquitectura hexagonal y gestión de 
 - [x] Añadir funcionalidad al repositorio de PunkApi y test de integración para el servicio de detalle de una cerveza.
 - [x] Crear controlador para el servicio de detalle y transformar objeto de respuesta.
 - [x] Construir documentación del API mediante OpenAPI.
+- [x] Crear test funcionales mediante Behat.

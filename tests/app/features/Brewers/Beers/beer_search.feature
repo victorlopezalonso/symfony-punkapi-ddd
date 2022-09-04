@@ -1,11 +1,11 @@
 Feature:
-  Search beers
+  Search beers and filter by food
 
   Scenario: It should fail with validations when the user calls without the required "page" query param
-    Given a user sends a GET request to "/api/v1/beers"
+    When a user sends a GET request to "/api/v1/beers"
     Then the response status code should be 400
-    Then a message field should be provided
-    Then a validations field should be provided
+    And a message field should be provided
+    And a validations field should be provided
 
   Scenario: A list of 15 beers should be provided when the "page" query param is present
     Given a user sends a GET request to "/api/v1/beers?page=1"
@@ -14,7 +14,7 @@ Feature:
     And user can see id field in data field
     And user can see name field in data field
     And user can see description field in data field
-    And user cannot see image field in data field
+    But user cannot see image field in data field
     And user cannot see slogan field in data field
     And user cannot see date field in data field
 
