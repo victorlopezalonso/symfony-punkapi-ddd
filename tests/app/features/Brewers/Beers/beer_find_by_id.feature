@@ -9,9 +9,9 @@ Feature:
   Scenario: A beer detail should be provided for an existing "id"
     Given a user sends a GET request to "/api/v1/beers/1"
     Then the response status code should be 200
-    And user can see id field
-    And user can see name field
-    And user can see description field
-    And user can see image field
-    And user can see slogan field
-    And user can see date field
+    And user can see id field in data field
+    And user can see name field in data field
+    And user can see description field in data field
+    And user can see image field in data field
+    And user can see slogan field in data field
+    And user can see date field in data field

@@ -23,20 +23,18 @@ class ApiContext implements Context
 
     private function jsonResponse()
     {
-        return json_decode($this->response->getContent());
+        return json_decode($this->response->getContent(), true);
     }
 
     private function data(): array
     {
-        $data = $this->jsonResponse()->data;
-
-        return is_array($data) ? $data : (array)$data;
+        return $this->jsonResponse()['data'];
     }
 
     /**
      * @Given a user sends a :method request to :path
      */
-    public function aUserSendsAPOSTRequestTo($method, $path)
+    public function aUserSendsAMethodRequestTo($method, $path)
     {
         $this->response = $this->kernel->handle(Request::create($path, $method));
     }
@@ -66,60 +64,32 @@ class ApiContext implements Context
     }
 
     /**
-     * @Given the response data should contain nuevo :number items
-     */
-    public function theResponseDataShouldContainNuevoItems($number)
-    {
-        throw new Exception(json_encode($this->data()));
-    }
-
-    /**
      * @Given a :name field should be provided
      */
-    public function aMessageShouldBeProvided($name)
+    public function aNameFieldShouldBeProvided($name)
     {
-        if (!isset($this->jsonResponse()->$name)) {
+        if (!isset($this->jsonResponse()[$name])) {
             throw new Exception("The response does not contain the $name field");
         }
     }
 
     /**
-     * @Given user can see :name field
+     * @Given user can see :name field in data field
      */
     public function userCanSeeNameField($name)
     {
-        if (!isset($this->data()[$name])) {
+        if (!isset($this->data()[$name]) && !isset($this->data()[0])) {
             throw new Exception("The response does not contain the $name field");
         }
     }
 
     /**
-     * @Given user can see :name field in array
-     */
-    public function userCanSeeIdFieldInArray($name)
-    {
-        if (!isset($this->data()[0]->$name)) {
-            throw new Exception("The response array does not contain the $name field");
-        }
-    }
-
-    /**
-     * @Given user cannot see :name field
+     * @Given user cannot see :name field in data field
      */
     public function userCanNotSeeNameField($name)
     {
-        if (isset($this->data()[$name])) {
+        if (isset($this->data()[$name]) || isset($this->data()[0][$name])) {
             throw new Exception("The response contains the $name field");
-        }
-    }
-
-    /**
-     * @Given user cannot see :name field in array
-     */
-    public function userCanNotSeeIdFieldInArray($name)
-    {
-        if (isset($this->data()[0]->$name)) {
-            throw new Exception("The response array contains the $name field");
         }
     }
 }
