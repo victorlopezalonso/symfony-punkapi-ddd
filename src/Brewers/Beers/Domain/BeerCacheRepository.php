@@ -16,6 +16,4 @@ interface BeerCacheRepository
     public function persistOne(Beer $beer);
 
     public function persistMany($beers, BeerPage $page, BeerPerPage $perPage, BeerFood $food);
-
-    public function delete(string ...$keys);
 }

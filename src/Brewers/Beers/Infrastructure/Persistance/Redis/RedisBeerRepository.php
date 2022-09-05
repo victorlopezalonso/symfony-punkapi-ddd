@@ -63,11 +63,9 @@ class RedisBeerRepository implements BeerCacheRepository
 
     public function findById(BeerId $beerId): ?Beer
     {
-        if (!$beer = $this->get(static::BEERS_KEY, $beerId->value())) {
-            return null;
-        }
+        $beer = $this->get(static::BEERS_KEY, $beerId->value());
 
-        return unserialize($beer);
+        return $beer ? unserialize($beer) : null;
     }
 
     public function delete(string ...$keys)
