@@ -5,11 +5,13 @@ namespace Tests\src\Brewers\Beers\Application;
 use PHPUnit\Framework\TestCase;
 use Vlopez\Brewers\Beers\Application\BeerSearcher;
 use Vlopez\Brewers\Beers\Application\Request\CreateBeerSearcherRequest;
+use Vlopez\Brewers\Beers\Domain\BeerCacheRepository;
 use Vlopez\Brewers\Beers\Domain\BeerRepository;
 
 class BeerSearcherTest extends TestCase
 {
     protected $repository;
+    protected $cacheRepository;
     protected $searcher;
 
     protected function setUp(): void
@@ -17,7 +19,8 @@ class BeerSearcherTest extends TestCase
         parent::setUp();
 
         $this->repository = $this->createMock(BeerRepository::class);
-        $this->searcher = new BeerSearcher($this->repository);
+        $this->cacheRepository = $this->createMock(BeerCacheRepository::class);
+        $this->searcher = new BeerSearcher($this->repository, $this->cacheRepository);
     }
 
     /** @test */
