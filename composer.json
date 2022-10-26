@@ -4,11 +4,14 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "ext-json": "*",
         "doctrine/annotations": "^1.0",
+        "doctrine/doctrine-bundle": "^2.7",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.13",
         "friendsofphp/php-cs-fixer": "^3.11",
         "guzzlehttp/guzzle": "^7.5",
         "nelmio/api-doc-bundle": "^4.9",
@@ -22,6 +25,7 @@
         "symfony/phpunit-bridge": "^6.1",
         "symfony/property-access": "5.4.*",
         "symfony/property-info": "5.4.*",
+        "symfony/proxy-manager-bridge": "5.4.*",
         "symfony/runtime": "5.4.*",
         "symfony/serializer": "5.4.*",
         "symfony/twig-bundle": "5.4.*",
@@ -81,6 +85,7 @@
         "friends-of-behat/mink-browserkit-driver": "^1.6",
         "friends-of-behat/mink-extension": "^2.7",
         "friends-of-behat/symfony-extension": "^2.3",
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "symfony/maker-bundle": "^1.47"
     }
 }
